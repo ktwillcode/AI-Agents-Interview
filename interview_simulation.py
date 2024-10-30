@@ -20,7 +20,7 @@ class InterviewSimulation:
             "candidate1": "groq/llama-3.1-8b-instant",
             "candidate2": "groq/llama3-8b-8192",
             "candidate3": "groq/mixtral-8x7b-32768",
-            "candidate4": "groq/llama2-70b-4096",
+            "candidate4": "groq/gemma-7b-it",
         }
         self.interview_results = {}
         self.interviewer = create_interviewer(job_title)
