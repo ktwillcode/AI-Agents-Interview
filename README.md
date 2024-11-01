@@ -2,8 +2,7 @@
 
 A fascinating experiment to evaluate how different Large Language Models (LLMs) perform in simulated job interviews. This project creates a controlled environment where multiple LLM models play the role of job candidates while being interviewed by a consistent interviewer model.
 
-![LLM Interview Simulator Demo](demo/interview-simulator-demo.png)
-*Interactive interview simulation showing real-time conversation between AI interviewer and candidate*
+
 
 ## 📋 Table of Contents
 - [Process Flow](#-process-flow)
@@ -229,10 +228,6 @@ llm-interview-simulator/
 └── 📄 README.md        # Documentation
 ```
 
-## 🔍 Sample Output
-
-![Sample Evaluation](demo/sample-evaluation.png)
-*Sample evaluation dashboard showing comparative analysis*
 
 ### Output Format
 ```json
