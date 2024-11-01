@@ -272,10 +272,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 This is an experimental project for research and educational purposes. The simulations should not be used as the sole basis for actual hiring decisions.
 
-## 📊 Results Dashboard
 
-![Results Dashboard](demo/results-dashboard.png)
-*Interactive dashboard showing model performance comparison*
 
 Key metrics displayed:
 - ⭐ Response quality scores
@@ -284,4 +281,4 @@ Key metrics displayed:
 - 💬 Communication style analysis
 
 ---
-Made with ❤️ by [Your Name]
+Made with ❤️ by KT
