@@ -21,6 +21,65 @@ A fascinating experiment to evaluate how different Large Language Models (LLMs) 
 
 ## 🔄 Process Flow
 
+### Overall Flow
+```mermaid
+flowchart TD
+    Start([Start Simulation]) --> Config[Initialize Configuration]
+    Config --> |Set Job Title| Setup[Setup Interview Environment]
+    
+    subgraph InitSetup [Initialization]
+        Setup --> InitInterviewer[Initialize Interviewer Agent<br/>llama-3.1-8b-instant]
+        Setup --> InitCandidates[Initialize Candidate Models]
+    end
+    
+    InitCandidates --> |Model 1| C1[Candidate 1<br/>llama-3.1-8b-instant]
+    InitCandidates --> |Model 2| C2[Candidate 2<br/>llama3-8b-8192]
+    InitCandidates --> |Model 3| C3[Candidate 3<br/>mixtral-8x7b-32768]
+    InitCandidates --> |Model 4| C4[Candidate 4<br/>gemma-7b-it]
+    
+    subgraph InterviewLoop [Interview Process]
+        StartInt[Start Interview] --> GenQ[Generate Question]
+        GenQ --> |Dynamic Question| GetResp[Get Candidate Response]
+        GetResp --> |Store Response| UpdateHist[Update Interview History]
+        UpdateHist --> |Check Questions| CheckCount{More Questions?}
+        CheckCount --> |Yes| GenQ
+        CheckCount --> |No| Evaluate
+    end
+    
+    C1 & C2 & C3 & C4 --> StartInt
+    
+    subgraph Evaluation [Evaluation Process]
+        Evaluate[Evaluate Candidate] --> GenScore[Generate Scores]
+        GenScore --> GenStrength[Identify Strengths]
+        GenStrength --> GenWeakness[Identify Weaknesses]
+        GenWeakness --> GenTips[Generate Interview Tips]
+        GenTips --> FinalEval[Final Evaluation Report]
+    end
+    
+    subgraph Analysis [Comparative Analysis]
+        FinalEval --> CompAnalysis[Compare All Candidates]
+        CompAnalysis --> RankModels[Rank Model Performance]
+        RankModels --> PatternAnalysis[Analyze Response Patterns]
+        PatternAnalysis --> Recommendations[Generate Recommendations]
+    end
+    
+    Recommendations --> SaveResults[Save Results to JSON]
+    SaveResults --> End([End Simulation])
+    
+    style InitSetup fill:#e1f5fe,stroke:#01579b
+    style InterviewLoop fill:#f3e5f5,stroke:#4a148c
+    style Evaluation fill:#f1f8e9,stroke:#33691e
+    style Analysis fill:#fff3e0,stroke:#e65100
+    
+    classDef process fill:#fff,stroke:#333,stroke-width:2px
+    classDef decision fill:#fffde7,stroke:#f57f17,stroke-width:2px
+    classDef endpoint fill:#006064,color:#fff,stroke:#00838f
+    
+    class Start,End endpoint
+    class CheckCount decision
+    class GenQ,GetResp,Evaluate,CompAnalysis process
+```
+
 ### 1. System Setup Flow
 ```mermaid
 flowchart LR
@@ -90,12 +149,12 @@ Purpose: Consistent evaluation across all interviews
 ```
 
 ### Candidates
-| Model | Type | Purpose |
-|-------|------|---------|
-| groq/llama-3.1-8b-instant | Base Model | Quick responses |
-| groq/llama3-8b-8192 | Enhanced | Detailed analysis |
-| groq/mixtral-8x7b-32768 | Advanced | Complex reasoning |
-| groq/llama2-70b-4096 | Large-scale | Comprehensive responses |
+| Model |
+|-------|
+| groq/llama-3.1-8b-instant |
+| groq/llama3-8b-8192 |
+| groq/mixtral-8x7b-32768 |
+| gemma-7b-it |
 
 ## 🔧 Installation
 
