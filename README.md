@@ -1,4 +1,4 @@
-# LLM Interview Simulator 🤖
+# LLM Interview Simulator 
 
 A fascinating experiment to evaluate how different Large Language Models (LLMs) perform in simulated job interviews. This project creates a controlled environment where multiple LLM models play the role of job candidates while being interviewed by a consistent interviewer model.
 
