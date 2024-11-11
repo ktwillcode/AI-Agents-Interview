@@ -8,6 +8,7 @@ def main():
         "Product Manager",
         "Customer Success Representative",
         "Data Analyst",
+        "Content Creator",
         "AI Engineer" #add more if you want
     ]
     
