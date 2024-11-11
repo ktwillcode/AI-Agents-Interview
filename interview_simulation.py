@@ -41,7 +41,7 @@ class InterviewSimulation:
             question = str(question_crew.kickoff())
             print(f"\nCo-founder: {question}")
             
-            # Generate answer
+            # Generate answer of question
             answer_crew = Crew(
                 agents=[candidate],
                 tasks=[create_answer_task(question, candidate)],
